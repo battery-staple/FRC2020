@@ -1,0 +1,14 @@
+language: python
+python:
+  - "3.8"
+  - "pypy3"
+install:
+  - pip install pyfrc
+  - pip install wpilib
+  - pip install marsutils
+  - pip install pynetworktables
+  - pip install robotpy-ctre
+  - pip install robotpy-navx
+  - pip install robotpy-rev
+  - pip install pygame
+script: ./bartholomew-richard-fitzgerald-smythe/robot.py test
