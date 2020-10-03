@@ -4,6 +4,8 @@ cache: pip
 python:
   - "3.8.4"
   - "pypy3"
+before_install:
+  - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py
 install:
   - pip install pyfrc
   - pip install wpilib
@@ -13,5 +15,4 @@ install:
   - pip install robotpy-navx
   - pip install robotpy-rev
 script: |
-  ls .
   ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
