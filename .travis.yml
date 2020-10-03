@@ -3,12 +3,5 @@ python:
   - "3.8.4"
   - "pypy3"
 install:
-  - pip install pyfrc
-  - pip install wpilib
-  - pip install marsutils
-  - pip install pynetworktables
-  - pip install robotpy-ctre
-  - pip install robotpy-navx
-  - pip install robotpy-rev
-  - pip install pygame
+  - pip install -r requirements.text
 script: ./bartholomew-richard-fitzgerald-smythe/robot.py test
