@@ -9,7 +9,16 @@ jobs:
     steps:
       - checkout
       - python/load-cache
-      - python/install-deps
+      - run: |
+          pip install pyfrc
+          pip install wpilib
+          pip install marsutils
+          pip install pynetworktables
+          pip install robotpy-ctre
+          pip install robotpy-navx
+          pip install robotpy-rev
+#            pip install pygame
+#      - python/install-deps
       - python/save-cache
       - run:
           command: ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
