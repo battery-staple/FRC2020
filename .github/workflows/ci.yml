@@ -20,6 +20,7 @@ jobs:
         with:
           python-version: '3.8'
       - name: Restore pip cache
+        uses: actions/cache@v2
         with:
           path: ~/.cache/pip
           # Look to see if there is a cache hit for the corresponding requirements file
