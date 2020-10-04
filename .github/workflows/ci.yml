@@ -29,7 +29,8 @@ jobs:
             ${{ runner.os }}-pip-
       - name: Install dependencies
         run: |
-           py -m pip install -r D:\a\FRC2020\FRC2020\requirements.txt
+          Get-ChildItem D:\a\FRC2020\FRC2020
+#           py -m pip install -r D:\a\FRC2020\FRC2020\requirements.txt
 #          ls D:\a\FRC2020\FRC2020
 #          pip install pyfrc
 #          pip install wpilib
