@@ -30,7 +30,7 @@ jobs:
             ${{ runner.os }}-
       - name: Install dependencies
         run: |
-          pwd
+          ls D:\a\FRC2020\FRC2020
           pip install -r ../requirements.txt
 #          pip install pyfrc
 #          pip install wpilib
