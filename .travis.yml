@@ -15,4 +15,6 @@ install:
   - pip install robotpy-navx
   - pip install robotpy-rev
   - pip install robotpy-rev-color
-script: python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
+script: |
+  pip list
+  python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
