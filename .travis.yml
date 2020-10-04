@@ -16,6 +16,4 @@ install:
   - pip install robotpy-rev
   - pip install robotpy-rev-color
   - pip install robotpy-hal-sim
-script: |
-  pip list
-  python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
+script: python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
