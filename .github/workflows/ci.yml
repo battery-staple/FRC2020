@@ -22,15 +22,14 @@ jobs:
       - name: Restore pip cache
         uses: actions/cache@v2
         with:
-          path: ~/.cache/pip
+          path: ~\AppData\Local\pip\Cache
           # Look to see if there is a cache hit for the corresponding requirements file
-          key: ${{ runner.os }}-pip-${{ hashFiles('~\requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-            ${{ runner.os }}-
       - name: Install dependencies
         run: |
-           py -m pip install -r ~\requirements.txt
+           py -m pip install -r **/requirements.txt
 #          ls D:\a\FRC2020\FRC2020
 #          pip install pyfrc
 #          pip install wpilib
