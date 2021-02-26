@@ -3,7 +3,7 @@ language: python
 dist: bionic
 cache: pip
 python:
-  - "3.8.4"
+  - "3.9.1"
   - "pypy3"
 before_install:
   - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py
