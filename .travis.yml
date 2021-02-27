@@ -5,7 +5,7 @@ dist: bionic
 jobs:
   include:
     - stage: print
-          script: echo "asdf"
+      script: echo "asdf"
     - stage: test robot.py
       cache: pip
       python:
