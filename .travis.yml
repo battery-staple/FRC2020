@@ -9,6 +9,13 @@ jobs:
     - stage: print
       install: echo "no installation"
       script: echo "asdf"
+    - stage: format
+      python:
+        - "pypy3"
+      install:
+        - pip install yapf
+      script:
+        - yapf -ir .
     - stage: test robot.py
       python:
         - "3.9.1"
@@ -24,5 +31,4 @@ jobs:
         - pip install robotpy-rev
         - pip install robotpy-rev-color
         - pip install robotpy-hal-sim
-        - pip install yapf
       script: python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
