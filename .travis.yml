@@ -1,6 +1,7 @@
 language: python
 os: linux
 dist: bionic
+arch: arm64-graviton2
 
 jobs:
   include:
