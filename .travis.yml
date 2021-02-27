@@ -1,4 +1,3 @@
-# test
 language: python
 dist: bionic
 cache: pip
@@ -16,4 +15,5 @@ install:
   - pip install robotpy-rev
   - pip install robotpy-rev-color
   - pip install robotpy-hal-sim
+  - pip install yapf
 script: python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
