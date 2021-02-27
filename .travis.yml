@@ -1,14 +1,15 @@
 os: linux
 dist: bionic
 arch: arm64-graviton2
+language: python
+cache: pip
 
 jobs:
   include:
     - stage: print
+      install: echo "no installation"
       script: echo "asdf"
     - stage: test robot.py
-      language: python
-      cache: pip
       python:
         - "3.9.1"
       before_install:
