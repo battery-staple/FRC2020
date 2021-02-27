@@ -1,19 +1,25 @@
 language: python
-dist: bionic
-cache: pip
-python:
-  - "3.9.1"
-before_install:
-  - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py
-install:
-  - pip install pyfrc
-  - pip install wpilib
-  - pip install marsutils
-  - pip install pynetworktables
-  - pip install robotpy-ctre
-  - pip install robotpy-navx
-  - pip install robotpy-rev
-  - pip install robotpy-rev-color
-  - pip install robotpy-hal-sim
-  - pip install yapf
-script: python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
+
+jobs:
+  include:
+    - stage: test robot.py
+      dist: bionic
+      cache: pip
+      python:
+        - "3.9.1"
+      before_install:
+        - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py
+      install:
+        - pip install pyfrc
+        - pip install wpilib
+        - pip install marsutils
+        - pip install pynetworktables
+        - pip install robotpy-ctre
+        - pip install robotpy-navx
+        - pip install robotpy-rev
+        - pip install robotpy-rev-color
+        - pip install robotpy-hal-sim
+        - pip install yapf
+      script: python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
+    - stage: print
+      script: echo "asdf"
