@@ -1,14 +1,17 @@
 language: python
+os: linux
+dist: bionic
 
 jobs:
   include:
+    - stage: print
+          script: echo "asdf"
     - stage: test robot.py
-      dist: bionic
       cache: pip
       python:
         - "3.9.1"
       before_install:
-        - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py
+        - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py  
       install:
         - pip install pyfrc
         - pip install wpilib
@@ -21,5 +24,3 @@ jobs:
         - pip install robotpy-hal-sim
         - pip install yapf
       script: python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
-    - stage: print
-      script: echo "asdf"
