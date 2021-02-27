@@ -16,7 +16,7 @@ jobs:
         - pip install yapf
       script:
         - yapf -ir .
-        - git diff HEAD
+        - git diff --stat HEAD
     - stage: test robot.py
       python:
         - "3.9.1"
