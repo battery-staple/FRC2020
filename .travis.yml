@@ -25,6 +25,6 @@ jobs:
       before_install:
         - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py  
       install:
-        - sudo apt-get install python-pygame
-        - pip install -r requirements.txt
+        # - sudo apt-get install python-pygame
+        - pip install -r <(cat requirements.txt | grep -v "pygame")
       script: python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
