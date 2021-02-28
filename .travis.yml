@@ -24,13 +24,5 @@ jobs:
       before_install:
         - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py  
       install:
-        - pip install pyfrc
-        - pip install wpilib
-        - pip install marsutils
-        - pip install pynetworktables
-        - pip install robotpy-ctre
-        - pip install robotpy-navx
-        - pip install robotpy-rev
-        - pip install robotpy-rev-color
-        - pip install robotpy-hal-sim
+        - pip install -r requirements.txt
       script: python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test

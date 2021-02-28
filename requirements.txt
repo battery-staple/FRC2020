@@ -5,4 +5,6 @@ pynetworktables
 robotpy-ctre
 robotpy-navx
 robotpy-rev
+robotpy-rev-color
+robotpy-hal-sim
 pygame
