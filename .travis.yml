@@ -13,7 +13,7 @@ jobs:
       script: echo "asdf"
     - stage: format
       python:
-        - "pypy3.7-7.3.3"
+        - "3.9.1" # use pypy here when available
       install:
         - pip install yapf
       script:
