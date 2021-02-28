@@ -1,7 +1,8 @@
 arch: arm64-graviton2
 virt: lxd
 os: linux
-dist: bionic
+dist: focal
+group: edge
 language: python
 cache: pip
 
