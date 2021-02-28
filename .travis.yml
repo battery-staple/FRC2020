@@ -1,7 +1,7 @@
-#test
+arch: arm64-graviton2
+virt: lxd
 os: linux
 dist: bionic
-arch: arm64-graviton2
 language: python
 cache: pip
 
