@@ -8,7 +8,7 @@ cache: pip
 jobs:
   include:
     - stage: print
-      install: echo "no installation"
+      install: skip
       script: echo "asdf"
     - stage: format
       python:
