@@ -15,7 +15,7 @@ jobs:
       python:
         - "3.9.1" # use pypy here when available
       install:
-        - py -m pip install yapf
+        - pip install yapf
       script:
         - yapf -ir .
         - git diff --stat HEAD
