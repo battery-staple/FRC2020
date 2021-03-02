@@ -1,9 +1,8 @@
-#arch: arm64-graviton2
-#virt: lxd
-#os: linux
-#dist: focal
-#group: edge
-os: windows
+arch: arm64-graviton2
+virt: lxd
+os: linux
+dist: focal
+group: edge
 language: python
 cache: pip
 
@@ -16,17 +15,20 @@ jobs:
       python:
         - "3.9.1" # use pypy here when available
       install:
-        - pip install yapf
+        - py -m pip install yapf
       script:
         - yapf -ir .
         - git diff --stat HEAD
     - stage: test robot.py
+      os: windows
       python:
-        - "3.9.1"
-#      before_install:
+        - "3.x"
+      before_install:
 #        - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py  
+         - choco install python3 --params "/InstallDir:C:\\Python"
+         - export PATH="/c/Python:/c/Python/Scripts:$PATH
+         - python -m pip install --upgrade pip wheel
       install:
-        # - sudo apt-get install python-pygame
-        - pip install -r requirements.txt
-#        - pip install -r <(cat requirements.txt | grep -v "pygame")
+        - pip install -r   requirements.txt
+#           - pip install -r <(cat requirements.txt | grep -v "pygame")
       script: py ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
