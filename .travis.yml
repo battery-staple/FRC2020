@@ -21,6 +21,7 @@ jobs:
         - git diff --stat HEAD
     - stage: test robot.py
       os: windows
+      language: sh
       python:
         - "3.x"
       before_install:
