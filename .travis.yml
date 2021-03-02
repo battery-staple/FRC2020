@@ -1,8 +1,9 @@
-arch: arm64-graviton2
-virt: lxd
-os: linux
-dist: focal
-group: edge
+#arch: arm64-graviton2
+#virt: lxd
+#os: linux
+#dist: focal
+#group: edge
+os: windows
 language: python
 cache: pip
 
@@ -22,9 +23,10 @@ jobs:
     - stage: test robot.py
       python:
         - "3.9.1"
-      before_install:
-        - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py  
+#      before_install:
+#        - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py  
       install:
         # - sudo apt-get install python-pygame
-        - pip install -r <(cat requirements.txt | grep -v "pygame")
-      script: python ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
+        - pip install -r requirements.txt
+#        - pip install -r <(cat requirements.txt | grep -v "pygame")
+      script: py ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
