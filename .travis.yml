@@ -5,6 +5,8 @@ dist: focal
 group: edge
 language: python
 cache: pip
+env: 
+  - RUN_TESTS=false
 
 jobs:
   include:
@@ -19,17 +21,16 @@ jobs:
       script:
         - yapf -ir .
         - git diff --stat HEAD
-#    - stage: test robot.py
-#      os: windows
-#      language: sh
-#      python:
-#        - "3.x"
-#      before_install:
-#        - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py  
-#         - choco install python3 --params "/InstallDir:C:\\Python"
-#         - export PATH="/c/Python:/c/Python/Scripts:$PATH"
-#         - python -m pip install --upgrade pip wheel
-#      install:
-#        - pip install -r   requirements.txt
-#           - pip install -r <(cat requirements.txt | grep -v "pygame")
-#      script: py ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
+    - stage: test robot.py
+      env: RUN_TESTS=true
+      os: windows
+      language: sh
+      python:
+        - "3.x"
+      before_install:
+         - choco install python3 --params "/InstallDir:C:\\Python"
+         - export PATH="/c/Python:/c/Python/Scripts:$PATH"
+         - python -m pip install --upgrade pip wheel
+      install:
+        - pip install -r   requirements.txt
+      script: py ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
