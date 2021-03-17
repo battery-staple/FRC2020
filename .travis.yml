@@ -27,7 +27,7 @@ jobs:
       before_install:
 #        - chmod +x ./robots/bartholomew-richard-fitzgerald-smythe/robot.py  
          - choco install python3 --params "/InstallDir:C:\\Python"
-         - python -m pip install --upgrade pip wheel
+         - python3 -m pip install --upgrade pip wheel
       install:
         - pip install -r   requirements.txt
 #           - pip install -r <(cat requirements.txt | grep -v "pygame")
