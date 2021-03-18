@@ -9,6 +9,9 @@ env:
   - PYFRC_IS_BAD=true  
 
 jobs:
+  allow_failures:
+   - if: env(PYFRC_IS_BAD) = true
+     env: USES_PYFRC=true
   include:
     - stage: print
       install: skip
@@ -22,10 +25,9 @@ jobs:
         - yapf -ir .
         - git diff --stat HEAD
     - stage: test robot.py
+      env: USES_PYFRC=true
       os: windows
       language: sh
-      allow_failures:
-       - if: true
       python:
         - "3.x"
       before_install:
