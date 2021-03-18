@@ -25,7 +25,7 @@ jobs:
       os: windows
       language: sh
       allow_failures:
-       - if: env(PYFRC_IS_BAD) = true
+       - if: true
       python:
         - "3.x"
       before_install:
