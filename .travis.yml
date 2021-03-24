@@ -5,6 +5,7 @@ dist: focal
 group: edge
 language: python
 cache: pip
+env: BE_HARRY=true
 
 jobs:
   allow_failures:
@@ -20,8 +21,10 @@ jobs:
       script:
         - yapf -ir .
         - git diff --stat HEAD
+        - if [ $BE_HARRY ]; then 
         - ./the_script
         - git diff --stat HEAD
+        - fi
         - git add . *.py
         - git config user.email "travis@travis-ci.org"
         - git config user.name "Travis CI"
