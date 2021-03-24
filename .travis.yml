@@ -24,6 +24,11 @@ jobs:
       script:
         - yapf -ir .
         - git diff --stat HEAD
+    - stage: harry
+      install: chmod +x the_script
+      script: 
+        - the_script
+        - git diff --stat HEAD
     - stage: test robot.py
       env: USES_PYFRC=true
       os: windows
@@ -35,5 +40,5 @@ jobs:
          - export PATH="/c/Python:/c/Python/Scripts:$PATH"
          - python -m pip install --upgrade pip wheel
       install:
-        - pip install -r   requirements.txt
+        - pip install -r requirements.txt
       script: py ./robots/bartholomew-richard-fitzgerald-smythe/robot.py test
