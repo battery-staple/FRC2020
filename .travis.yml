@@ -10,20 +10,15 @@ jobs:
   allow_failures:
      env: USES_PYFRC_20=true
   include:
-    - stage: print
-      install: skip
-      script: echo "asdf"
     - stage: format
       python:
         - "3.9.1" # use pypy here when available
+      before_install:
+        chmod +x the_script
       install:
         - pip install yapf
       script:
         - yapf -ir .
-        - git diff --stat HEAD
-    - stage: harry
-      install: chmod +x the_script
-      script: 
         - ./the_script
         - git diff --stat HEAD
     - stage: test robot.py
