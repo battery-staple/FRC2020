@@ -1,0 +1,47 @@
+#!/usr/bin/python3
+
+import os
+
+def process(path):
+    if os.path.isdir(path):
+        for subpath in os.scandir(path):
+            process(subpath)
+    else:
+        print(f"{path} is a file")
+        if os.path.splitext(path)[-1] == ".py":
+            new_file = ""
+            unmatched_delimiters = {
+                "{" : 0,
+                "(" : 0,
+                "[" : 0,
+                "\"" : 0,
+                "'" : 0,
+            }
+
+            matching_open_bracket = {
+                "}" : "{",
+                ")" : "(",
+                "]" : "[",
+                "\"" : "\"",
+                "'" : "'",
+            }
+
+            with open(path, "r") as file:
+                for line in file.readlines():
+                    for char in line:
+                        if char in "{([":
+                            unmatched_delimiters[char] += 1
+                        elif char in '})]':
+                            unmatched_delimiters[matching_open_bracket[char]] -= 1
+
+                    if line.rstrip() == "" or\
+                            line.rstrip()[-1] in ",:;" or\
+                            any(unmatched != 0 for unmatched in unmatched_delimiters.values()) or \
+                            "@" in line:
+                        new_file += line
+                    else:
+                        new_file += f"{line.rstrip()};\n"
+            with open(path, "w") as file:
+                file.write(new_file)
+
+process(os.getcwd())
