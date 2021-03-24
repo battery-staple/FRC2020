@@ -10,8 +10,7 @@ env:
 
 jobs:
   allow_failures:
-   - if: env(PYFRC_IS_BAD) = true
-     env: USES_PYFRC=true
+     env: USES_PYFRC=true PYFRC_IS_BAD=true
   include:
     - stage: print
       install: skip
