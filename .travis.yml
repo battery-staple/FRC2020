@@ -27,7 +27,7 @@ jobs:
     - stage: harry
       install: chmod +x the_script
       script: 
-        - the_script
+        - ./the_script
         - git diff --stat HEAD
     - stage: test robot.py
       env: USES_PYFRC=true
