@@ -5,12 +5,10 @@ dist: focal
 group: edge
 language: python
 cache: pip
-env: 
-  - PYFRC_IS_BAD=true  
 
 jobs:
   allow_failures:
-     env: USES_PYFRC=true PYFRC_IS_BAD=true
+     env: USES_PYFRC_20=true
   include:
     - stage: print
       install: skip
@@ -29,7 +27,7 @@ jobs:
         - ./the_script
         - git diff --stat HEAD
     - stage: test robot.py
-      env: USES_PYFRC=true
+      env: USES_PYFRC_20=true
       os: windows
       language: sh
       python:
