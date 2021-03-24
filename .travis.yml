@@ -23,6 +23,8 @@ jobs:
         - ./the_script
         - git diff --stat HEAD
         - git add . *.py
+        - git config user.email "travis@travis-ci.org"
+        - git config user.name "Travis CI"
         - git commit -m "[CI/CD] Autoformatted [skip ci]"
     - stage: test robot.py
       env: USES_PYFRC_20=true
